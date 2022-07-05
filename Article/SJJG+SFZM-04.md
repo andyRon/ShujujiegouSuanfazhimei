@@ -2,7 +2,7 @@
 
 
 
-四个复杂度分析方面的知识点，<font color=#FF8C00>最好情况时间复杂度</font>（best case time complexity）、<font color=#FF8C00>最坏情况时间复杂度</font>（worst case time complexity）、<font color=#FF8C00>平均情况时间复杂度</font>（average case time complexity）、<font color=#FF8C00>均摊时间复杂度</font>（amortized time complexity）。
+四个复杂度分析：<font color=#FF8C00>最好情况时间复杂度</font>（best case time complexity）、<font color=#FF8C00>最坏情况时间复杂度</font>（worst case time complexity）、<font color=#FF8C00>平均情况时间复杂度</font>（average case time complexity）、<font color=#FF8C00>均摊时间复杂度</font>（amortized time complexity）。
 
 ### **1.最好、最坏情况时间复杂度**
 
