@@ -1,4 +1,4 @@
-package com.andyron.linkedlist;
+package com.andyron.ch06linkedlist;
 
 /**
  * 单链表
@@ -139,15 +139,31 @@ public class SinglyLinkedList {
     public void printAll() {
         Node p = head;
         while (p != null) {
-            System.out.println(p.data + " ");
+            System.out.print(p.data + " ");
             p = p.next;
         }
         System.out.println();
     }
 
     public boolean TFResult(Node left, Node right) {
+        Node l = left;
+        Node r = right;
 
-        return true;
+        boolean flag=true;
+        System.out.println("left_:" + l.data);
+        System.out.println("right_:" + r.data);
+        while (l != null && r != null) {
+            if (l.data == r.data) {
+                l = l.next;
+                r = r.next;
+                continue;
+            } else {
+                flag = false;
+                break;
+            }
+
+        }
+        return flag;
     }
 
     /**
@@ -164,24 +180,60 @@ public class SinglyLinkedList {
             System.out.println("只有一个元素");
             return true;
         }
-        // 🔖
+        while (q.next != null && q.next.next != null) {
+            p = p.next;
+            q = q.next.next;
+        }
 
+        Node leftLink = null;
+        Node rightLink = null;
+        if (q.next == null) {
+            rightLink = p.next;
+            leftLink = inverseLinkList(p).next;
+        } else {
+            rightLink = p.next;
+            leftLink = inverseLinkList(p);
+        }
 
-        return true;
+        return TFResult(leftLink, rightLink);
     }
 
     /**
      * 带节点的链表翻转
      */
     public Node inverseLinkListHead(Node p) {
+        Node head = new Node(9999, null);
+        head.next = p;
 
+        Node cur = p.next;
+        p.next = null;
+        Node next = null;
+
+        while (cur != null) {
+            next = cur.next;
+            cur.next = head.next;
+            head.next = cur;
+            System.out.println("first " + head.data);
+            cur = next;
+        }
+        return head;
     }
 
     /**
      * 无头节点的链表翻转
      */
     public Node inverseLinkList(Node p) {
-
+        Node pre = null;
+        Node r = head;
+        Node next = null;
+        while (r != p) {
+            next = r.next;
+            r.next = pre;
+            pre = r;
+            r = next;
+        }
+        r.next = pre;
+        return r;
     }
 
     public static Node createNode(int value) {
@@ -200,5 +252,17 @@ public class SinglyLinkedList {
         public int getData() {
             return data;
         }
+    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList link = new SinglyLinkedList();
+//        int data[] = {1,2,4,3,1};
+        int data[] = {1,2,3,6,3,2,1};
+
+        for (int i = 0; i < data.length; i++) {
+            link.insertTail(data[i]);
+        }
+        link.printAll();
+        System.out.println("是否是回文：" + link.isPalindrome());
     }
 }

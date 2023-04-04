@@ -1,4 +1,4 @@
-package com.andyron.linkedlist;
+package com.andyron.ch06linkedlist;
 
 /**
  * 基于数组实现的LRU缓存

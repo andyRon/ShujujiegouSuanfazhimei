@@ -1,4 +1,4 @@
-package com.andyron.array;
+package com.andyron.ch05array;
 
 public class GenericArray<T> {
     private T[] data;
