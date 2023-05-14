@@ -1,6 +1,7 @@
-package com.andyron.ch24;
+package com.andyron.ch24binarytree;
 
 /**
+ * 二叉搜索树
  * @author andyron
  **/
 public class BinarySearchTree {
