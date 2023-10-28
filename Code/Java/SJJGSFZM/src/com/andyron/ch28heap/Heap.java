@@ -1,6 +1,8 @@
 package com.andyron.ch28heap;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * @author andyron
@@ -25,6 +27,10 @@ public class Heap {
         count = 0;
     }
 
+    /**
+     * 插入元素
+     * 从下往上的堆化
+     */
     public void insert(int data) {
         if (count >= n) {
             return;
@@ -45,6 +51,10 @@ public class Heap {
         a[j] = tmp;
     }
 
+    /**
+     * 删除堆顶元素
+     * 把最后一个节点放到堆顶，然后再进行从上往下的堆化
+     */
     public void removeMax() {
         // 堆中没有数据
         if (count == 0) {
@@ -57,11 +67,14 @@ public class Heap {
 
     /**
      * 自上往下堆化
+     * @param a 存储堆的数组
+     * @param n 堆中已经存储的数据个数
+     * @param i 开始交换的位置
      */
     private void heapify(int[] a, int n, int i) {
         while (true) {
             int maxPos = i;
-            if (i * 2 <= n && a[i] < a[i*2]) {
+            if (i * 2 <= n && a[i] < a[i * 2]) {
                 maxPos = i * 2;
             }
             if (i * 2 + 1 <= n && a[maxPos] < a[i * 2 + 1]) {
@@ -73,6 +86,10 @@ public class Heap {
             swap(a, i, maxPos);
             i = maxPos;
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
